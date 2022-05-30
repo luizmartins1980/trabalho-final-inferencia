@@ -1,20 +1,20 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 import apps.tratamentoBase
-import apps.edaFiles
 import apps.analiseCurso
+import apps.inferenciaCurso
 
 st.set_page_config()
 
 with st.sidebar:
     escolha = option_menu("Menu", 
                         
-                        ["Home", 
+                        ["Inferência por Curso", 
                         "Tratamento Base Dados", 
-                        "Análise Exploratória", 
-                        "Análise por Curso"],
+                        "Análise por Curso"
+                        ],
 
-                         icons=["house", "file-bar-graph", "file-bar-graph", "bar-chart"], #https://icons.getbootstrap.com/
+                         icons=["house", "file-bar-graph",  "bar-chart"], #https://icons.getbootstrap.com/
                          
                          menu_icon="menu-button-wide", 
                          
@@ -27,42 +27,15 @@ with st.sidebar:
                                     "nav-link": {"font-size": "12px", "text-align": "left", "margin":"0px", "--hover-color": "#262730", "icon" : "#FF4B4B"},
                                     "nav-link-selected": {"background-color": "#262730"},
                                 }
+
                         )
 
 
-if escolha == "Home":
-    """
-        # Trabalho Final Estatística Descritiva e Criação de Dashboards
-
-        **Curso:** MBA em Data Science e Statistics com Python
-
-        **Professor:** Thiago Marques
-       
-        **Aluno:** Luiz Leonardo Martins
-
-
-        **Objetivos do trabalho:**
-
-        Realizar análise descritiva na base de micro dados do ENADE.
-
-
-        **Observações:**
-
-        Foi utilizada a **base de dados completa do ENAD 2019**.
-
-
-        **Colunas Utilizadas:**
-
-
-        **Download Documentos:**
-
-
-    """
-elif  escolha == "Tratamento Base Dados":
+if  escolha == "Tratamento Base Dados":
     apps.tratamentoBase.tratamentoBase()
 
-elif  escolha == "Análise Exploratória":
-    apps.edaFiles.edaFiles()
+elif  escolha == "Inferência por Curso":
+    apps.inferenciaCurso.inferenciaCurso()
 
 elif  escolha == "Análise por Curso":
     apps.analiseCurso.analiseCurso()
